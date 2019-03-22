@@ -32,12 +32,13 @@ public class Trail : MonoBehaviour
 
         if (Time.time >= lastEnqueue + interval)
         {
+            lastEnqueue = Time.time;
             points.Enqueue(new Vector3(transform.position.x, transform.position.y));
             currentNum++;
         }
 
         Vector3[] arr = points.ToArray();
-        line.SetPositions(arr);
         line.positionCount = arr.Length;
+        line.SetPositions(arr);
     }
 }
