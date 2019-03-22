@@ -20,7 +20,7 @@ public class World : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                GameObject g = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity, transform) as GameObject;
+                GameObject g = Instantiate(tilePrefab, new Vector3(x, y, 1), Quaternion.identity, transform) as GameObject;
             }
         }
 
