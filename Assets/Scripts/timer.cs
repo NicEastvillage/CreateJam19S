@@ -28,6 +28,6 @@ public class timer : MonoBehaviour
             minutes += 1;
         }
 
-        GetComponent<Text>().text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        GetComponent<Text>().text = minutes.ToString("00") + "." + seconds.ToString("00");
     }
 }
