@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: killingTrailTag
       value: Trail_P2
       objectReference: {fileID: 0}
+    - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
       propertyPath: m_TagString
@@ -228,11 +233,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
-        type: 3}
-      propertyPath: playerNumber
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
@@ -385,7 +385,6 @@ GameObject:
   - component: {fileID: 673770176}
   - component: {fileID: 673770179}
   - component: {fileID: 673770178}
-  - component: {fileID: 673770177}
   m_Layer: 5
   m_Name: player 2 score
   m_TagString: Untagged
@@ -412,30 +411,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -32.999985}
   m_SizeDelta: {x: 53.6, y: 30}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &673770177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673770175}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb025f571281549499a371a6ed62eec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 180
-  gameover: {fileID: 0}
-  firstplace: {fileID: 0}
-  secondplace: {fileID: 0}
-  timerUI: {fileID: 0}
-  p1scoreUI: {fileID: 0}
-  p2scoreUI: {fileID: 0}
-  map: {fileID: 0}
-  p1: {fileID: 0}
-  p2: {fileID: 0}
-  rebutton: {fileID: 0}
-  timerisout: 0
 --- !u!114 &673770178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,16 +525,6 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1287741544}
-    - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Trail_P2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
       propertyPath: left
@@ -584,6 +549,16 @@ PrefabInstance:
         type: 3}
       propertyPath: playerNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trail_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
@@ -7739,7 +7714,6 @@ GameObject:
   - component: {fileID: 1833080874}
   - component: {fileID: 1833080877}
   - component: {fileID: 1833080876}
-  - component: {fileID: 1833080875}
   m_Layer: 5
   m_Name: player 1 score
   m_TagString: Untagged
@@ -7766,30 +7740,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -33}
   m_SizeDelta: {x: 53.6, y: 30}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1833080875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833080873}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb025f571281549499a371a6ed62eec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 180
-  gameover: {fileID: 0}
-  firstplace: {fileID: 0}
-  secondplace: {fileID: 0}
-  timerUI: {fileID: 0}
-  p1scoreUI: {fileID: 0}
-  p2scoreUI: {fileID: 0}
-  map: {fileID: 0}
-  p1: {fileID: 0}
-  p2: {fileID: 0}
-  rebutton: {fileID: 0}
-  timerisout: 0
 --- !u!114 &1833080876
 MonoBehaviour:
   m_ObjectHideFlags: 0
