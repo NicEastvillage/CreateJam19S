@@ -40,5 +40,22 @@ public class Trail : MonoBehaviour
         Vector3[] arr = points.ToArray();
         line.positionCount = arr.Length;
         line.SetPositions(arr);
+        detecthit();
+    }
+
+    void detecthit()
+    {
+        RaycastHit hit;
+        Vector3[] arr = points.ToArray();
+        if (Physics.Raycast(arr[1], arr[arr.Length-1], out hit))
+            {
+                switch (hit.transform.gameObject.tag)
+                {
+                    case "Player":
+                        //Output message
+                        print("player detected");
+                        break;
+                }
+            }
     }
 }
