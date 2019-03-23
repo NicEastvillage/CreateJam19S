@@ -8,11 +8,17 @@ public class circle : MonoBehaviour
     public float waittime = 10f;
     public GameObject prefab;
     int numberofcircles = 10;
+    public float maxSize = 2;
+    public float growFactor = 1.2f;
+    public float waitTime=0.2f;
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(wave());
         
+        Vector3 me = this.transform.position;
+        Vector3 mysize = this.transform.localScale;
+        GameObject ost = createCircle(me, mysize.x, mysize.y);
+        StartCoroutine(Scale(ost));
     }
 
     // Update is called once per frame
@@ -29,16 +35,17 @@ public class circle : MonoBehaviour
     {
         Vector3 me = this.transform.position;
         Vector3 mysize = this.transform.localScale;
-        for (int i = 0; i < numberofcircles; i++)
-        {
-            size += 0.1f;
-            GameObject ost = createCircle(me, size+mysize.x, size+mysize.y);
-            SpriteRenderer colordims = ost.GetComponent<SpriteRenderer>();
-            colordims.color = (new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255)));
-            yield return new WaitForSeconds(waittime);
-            Destroy(ost);
-            
-        }    
+        GameObject ost = createCircle(me, mysize.x, mysize.y);
+        /*  for (int i = 0; i < numberofcircles; i++)
+          {
+              size += 0.1f;
+              
+
+              yield return new WaitForSeconds(waittime);
+              Destroy(ost);
+
+          }  */
+        yield return new WaitForSeconds(1);
     }
 
 
@@ -46,16 +53,33 @@ public class circle : MonoBehaviour
     {
         GameObject circle =
         Instantiate(prefab,
-            new Vector3(me.x / 2, me.y / 2, me.z/2),
+            new Vector3(me.x , me.y, me.z/2),
             Quaternion.identity) as GameObject;
         circle.transform.localScale = new Vector3(x, y, 1);
         SpriteRenderer colordims = circle.GetComponent<SpriteRenderer>();
-        colordims.color = (new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255)));
+        Color Color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        Debug.Log(Color);
+        colordims.color = Color;
         return circle;
     }
     private IEnumerator wait()
     {
 
         yield return new WaitForSeconds(3);
+    }
+
+    IEnumerator Scale(GameObject ost)
+    {
+        float timer = 0;
+        
+        while (maxSize > ost.transform.localScale.x)
+        {
+            
+            timer += Time.deltaTime;
+            ost.transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime * growFactor;
+            
+            yield return null;
+        }
+               
     }
 }
