@@ -2,26 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillPlayer : MonoBehaviour
-{
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "Player Two")
-        {
-            // Do stuff
-            onCollision();
-            Debug.Log(other.name);
-        }
-        else if (other.name == "Player 1")
-        {
-            onCollision();
-            Debug.Log(other.name);
-        }
+public class KillPlayer : MonoBehaviour{
 
-    }
+    [SerializeField] private GameObject player;
+    [SerializeField] private Transform spawnPoint;
 
-    private void onCollision()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Do collision stuff
+        if (collision.collider.tag == "Player"){
+            player.transform.position = spawnPoint.transform.position;
+        }
     }
 }
