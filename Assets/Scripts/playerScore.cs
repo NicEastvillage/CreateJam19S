@@ -21,8 +21,8 @@ public class playerScore : MonoBehaviour
 
     void UpdateScores()
     {
-        p1Score.text = "P1 SCORE:" + "\n " + P1scorenum.ToString();
-        p2Score.text = "P2 SCORE:" + "\n " + P2scorenum.ToString();
+        p1Score.text = P1scorenum.ToString();
+        p2Score.text = P2scorenum.ToString();
        
     }
 
