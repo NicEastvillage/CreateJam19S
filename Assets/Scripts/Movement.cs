@@ -13,18 +13,30 @@ public class Movement : MonoBehaviour
     public KeyCode down;
     public GameObject gameObejct;
     private Vector2 moveDirection = Vector2.zero;
-    
 
+    public float pausedMovementDuration = 2.5f;
+    public float pausedMovementTimer = 0f;
+    public TextMesh pausedMovementMesh;
+    
     // Start is called before the first frame update
     void Start()
     {
-        gameObejct.GetComponent<GameObject>();   
+        PauseMovement();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement();
+        if (pausedMovementTimer > 0)
+        {
+            pausedMovementTimer -= Time.deltaTime;
+            pausedMovementMesh.text = ((int)(pausedMovementTimer + 1f)).ToString();
+        }
+        else
+        {
+            pausedMovementMesh.text = "";
+            movement();
+        }
     }
 
     void movement()
@@ -97,5 +109,8 @@ public class Movement : MonoBehaviour
         }
     }
 
-    
+    public void PauseMovement()
+    {
+        pausedMovementTimer = pausedMovementDuration;
+    }
 }

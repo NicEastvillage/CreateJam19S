@@ -8,7 +8,6 @@ public class KillPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Player Collision");
         if (collider.tag == "Player" || collider.tag == killingTrailTag){
             Kill();
         }
