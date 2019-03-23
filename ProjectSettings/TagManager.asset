@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Trail_P1
+  - Trail_P2
   layers:
   - Default
   - TransparentFX
