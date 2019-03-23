@@ -12,12 +12,17 @@ public class Movement : MonoBehaviour
     public KeyCode up;
     public KeyCode down;
     public GameObject gameObejct;
-    private Vector2 moveDirection = Vector2.up;
+    public SpriteRenderer sprr;
+    public Sprite rightSprite;
+    public Sprite leftSprite;
+    public Sprite upSprite;
+    public Sprite downSprite;
 
     public float pausedMovementDuration = 2.5f;
     public float pausedMovementTimer = 0f;
     public TextMesh pausedMovementMesh;
 
+    private Vector2 moveDirection = Vector2.up;
     private string ps_horizontal;
     private string ps_vertical;
 
@@ -51,6 +56,7 @@ public class Movement : MonoBehaviour
         }
 
         movement();
+        UpdateSprite();
     }
 
     void movement()
@@ -99,5 +105,17 @@ public class Movement : MonoBehaviour
     public void PauseMovement()
     {
         pausedMovementTimer = pausedMovementDuration;
+    }
+
+    public void UpdateSprite()
+    {
+        Sprite spr = sprr.sprite;
+
+        if (moveDirection == Vector2.up) spr = upSprite;
+        else if (moveDirection == Vector2.down) spr = downSprite;
+        else if (moveDirection == Vector2.right) spr = rightSprite;
+        else if (moveDirection == Vector2.left) spr = leftSprite;
+
+        sprr.sprite = spr;
     }
 }
