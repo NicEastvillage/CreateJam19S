@@ -7,9 +7,10 @@ public class KillPlayer : MonoBehaviour{
     public Transform spawnPoint;
     public string killingTrailTag = "Trail_P1";
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.collider.tag == "Player" || collision.collider.tag == killingTrailTag){
+        Debug.Log("Player Collision");
+        if (collider.tag == "Player" || collider.tag == killingTrailTag){
             Kill();
         }
     }

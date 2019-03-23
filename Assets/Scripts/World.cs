@@ -13,8 +13,6 @@ public class World : MonoBehaviour
     
     void OnEnable()
     {
-        Debug.Log("Creating world");
-
         if (tiles != null)
         {
             foreach (GameObject t in tiles)
