@@ -50,4 +50,18 @@ public class Trail : MonoBehaviour
         line.positionCount = arr.Length;
         line.SetPositions(arr);
     }
+
+    public void Clear()
+    {
+        foreach (GameObject g in trailObjects)
+        {
+            Destroy(g);
+        }
+
+        points = new Queue<Vector3>();
+        trailObjects = new Queue<GameObject>();
+        currentNum = 0;
+
+        line.positionCount = 0;
+    }
 }

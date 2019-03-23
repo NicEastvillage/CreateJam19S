@@ -18,5 +18,7 @@ public class KillPlayer : MonoBehaviour{
     public void Kill()
     {
         transform.position = spawnPoint.transform.position;
+        Trail trail = GetComponentInChildren<Trail>();
+        trail.Clear();
     }
 }
