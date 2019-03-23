@@ -12,15 +12,28 @@ public class Movement : MonoBehaviour
     public KeyCode up;
     public KeyCode down;
     public GameObject gameObejct;
-    private Vector2 moveDirection = Vector2.zero;
+    private Vector2 moveDirection = Vector2.up;
 
     public float pausedMovementDuration = 2.5f;
     public float pausedMovementTimer = 0f;
     public TextMesh pausedMovementMesh;
-    
+
+    private string ps_horizontal;
+    private string ps_vertical;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (playerNumber == 1)
+        {
+            ps_horizontal = "PS4_1_Horizontal";
+            ps_vertical = "PS4_1_Vertical";
+        } else
+        {
+            ps_horizontal = "PS4_2_Horizontal";
+            ps_vertical = "PS4_2_Vertical";
+        }
+
         PauseMovement();
     }
 
@@ -35,77 +48,51 @@ public class Movement : MonoBehaviour
         else
         {
             pausedMovementMesh.text = "";
-            movement();
         }
+
+        movement();
     }
 
     void movement()
     {
-        switch (playerNumber)
-        {
-            case 1:
-                //Debug.Log("Horizontal: " + Input.GetAxis("PS4_1_Horizontal"));
-                //Debug.Log("Horizontal: " + Input.GetAxis("PS4_1_Vertical"));
-                if (Input.GetAxis("PS4_1_Horizontal") > 0)
-                {
-                    gameObejct.transform.Translate((new Vector2(moveSpeed*Time.deltaTime, 0)));
-                } else if (Input.GetAxis("PS4_1_Horizontal") < 0 )
-                {
-                    gameObejct.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0));
-                } else if (Input.GetAxis("PS4_1_Vertical") > 0)
-                {
-                    gameObejct.transform.Translate(new Vector2(0, moveSpeed * Time.deltaTime));
-                } else if (Input.GetAxis("PS4_1_Vertical") < 0)
-                {
-                    gameObejct.transform.Translate(new Vector2(0, -moveSpeed * Time.deltaTime));
-                }
-               // moveDirection = new Vector2(Input.GetAxis("PS4_1_Horizontal"), Input.GetAxis("PS4_1_Vertical"));
-               // gameObejct.transform.Translate(moveDirection);
-                //moveDirection *= moveSpeed;
-                break;
-            case 2:
+        Vector2 dir = MovementDirection();
 
-                if (Input.GetAxis("PS4_2_Horizontal") > 0)
-                {
-                    gameObejct.transform.Translate((new Vector2(moveSpeed * Time.deltaTime, 0)));
-                }
-                else if (Input.GetAxis("PS4_2_Horizontal") < 0)
-                {
-                    gameObejct.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0));
-                }
-                else if (Input.GetAxis("PS4_2_Vertical") > 0)
-                {
-                    gameObejct.transform.Translate(new Vector2(0, moveSpeed * Time.deltaTime));
-                }
-                else if (Input.GetAxis("PS4_2_Vertical") < 0)
-                {
-                    gameObejct.transform.Translate(new Vector2(0, -moveSpeed * Time.deltaTime));
-                }
-                //moveDirection = new Vector2(Input.GetAxis("PS4_2_Horizontal"), Input.GetAxis("PS4_2_Vertical"));
-                //gameObejct.transform.Translate(moveDirection);
-                //moveDirection *= moveSpeed;
-                break;
+        if (dir != Vector2.zero && (-dir != moveDirection || pausedMovementTimer > 0))
+        {
+            moveDirection = dir;
         }
 
-        if (Input.GetKey(left))
+        if (pausedMovementTimer <= 0)
         {
-            gameObejct.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0));
-            //Debug.Log("A: Pressed");
+            transform.Translate(moveDirection * Time.deltaTime * moveSpeed);
         }
-        else if (Input.GetKey(right))
+    }
+
+    private int b2i(bool b)
+    {
+        return b ? 1 : 0;
+    }
+
+    Vector2 MovementDirection()
+    {
+        float ps_x = Input.GetAxis(ps_horizontal);
+        float ps_y = Input.GetAxis(ps_vertical);
+
+        Vector2 direction = new Vector2(
+            ps_x + b2i(Input.GetKey(right)) - b2i(Input.GetKey(left)),
+            ps_y + b2i(Input.GetKey(up)) - b2i(Input.GetKey(down))
+        );
+
+        if (direction == Vector2.zero) return direction;
+
+        // Return cardinal vector
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            gameObejct.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0));
-            //Debug.Log("D: Pressed");
+            return new Vector2(Mathf.Sign(direction.x), 0);
         }
-        else if (Input.GetKey(up))
+        else
         {
-            gameObejct.transform.Translate(new Vector2(0, moveSpeed * Time.deltaTime));
-            //Debug.Log("W: Pressed");
-        }
-        else if (Input.GetKey(down))
-        {
-            gameObejct.transform.Translate(new Vector2(0, -moveSpeed * Time.deltaTime));
-            //Debug.Log("S: Pressed");
+            return new Vector2(0, Mathf.Sign(direction.y));
         }
     }
 
