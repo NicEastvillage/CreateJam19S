@@ -10,6 +10,9 @@ public class KillPlayer : MonoBehaviour
     {
         if (collider.tag == "Player" || collider.tag == killingTrailTag){
             Kill();
+        } else if (collider.tag == "Wall")
+        {
+            Kill();
         }
     }
 
