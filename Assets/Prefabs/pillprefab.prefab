@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1887397724568652, guid: 828a749b1099ab2498c8330d24716be8, type: 3}
+  numberofcircles: 1
   maxSize: 26.09
   growFactor: 20
+  waittime: 0.5
   atepil: 0

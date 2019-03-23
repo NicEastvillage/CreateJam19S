@@ -7,11 +7,11 @@ public class circle : MonoBehaviour
 
     
     public GameObject prefab;
-    int numberofcircles = 5;
+    public int numberofcircles = 5;
     public float maxSize = 2;
     public float growFactor = 1.2f;
     public float waittime = 0.5f;
-
+    public Vector3 wavepos;
     public bool atepil = true;
     // Use this for initialization
     void Start()
@@ -47,7 +47,7 @@ public class circle : MonoBehaviour
         
           for (int i = 0; i < numberofcircles; i++)
           {
-              GameObject x = createCircle(transform.position, transform.localScale.x * 0.01f, transform.localScale.y * 0.01f);
+              GameObject x = createCircle(wavepos, transform.localScale.x * 0.01f, transform.localScale.y * 0.01f);
             StartCoroutine(Scale(x));
 
             yield return new WaitForSeconds(waittime);
@@ -74,7 +74,8 @@ public class circle : MonoBehaviour
     private IEnumerator wait()
     {
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.5f);
+        
     }
 
     IEnumerator Scale(GameObject ost)
@@ -102,17 +103,19 @@ public class circle : MonoBehaviour
         if (collision.tag == "Player")
         {
             atepil = true;
-            Debug.Log(collision.name);
+            
             if (collision.name == "Player_2 (1)")
             {
+
                 playerScore.AddP2Score(1);
             }
             if (collision.name == "Player_1")
             {
                 playerScore.AddP1Score(1);
             }
-
-
+            wavepos = collision.gameObject.transform.position;
+            Vector3 pos = World.GetRandomPosition();
+            transform.position = pos;
         }
 
 

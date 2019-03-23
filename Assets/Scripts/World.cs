@@ -7,10 +7,11 @@ public class World : MonoBehaviour
 
     public int width = 24;
     public int height = 18;
-
+    public GameObject pillprefab;
     public GameObject tilePrefab;
     public List<GameObject> tiles;
-
+    public float pillspawntimer;
+    public float timer;
     private static World _instance;
     
     void OnEnable()
@@ -36,9 +37,35 @@ public class World : MonoBehaviour
 
         Camera.main.transform.position = new Vector3(width - 1, height - 1, -20) / 2;
     }
-
+    private void Start()
+    {
+        spawnpill(5);
+    }
+    void Update()
+    {
+        if(timer< pillspawntimer)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0f;
+            spawnpill(1);
+            
+        }
+    }
     public static Vector3 GetRandomPosition()
     {
         return new Vector3(Random.Range(0, _instance.width), Random.Range(0, _instance.height), 0);
+    }
+
+    public void spawnpill(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+        Vector3 ost = GetRandomPosition();
+        GameObject p = Instantiate(pillprefab,  ost, Quaternion.identity, transform) as GameObject;
+        }
+        
     }
 }
