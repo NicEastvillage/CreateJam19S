@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb025f571281549499a371a6ed62eec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 180
+  totalTime: 150
   timerUI: {fileID: 175803395}
   p1scoreUI: {fileID: 1108544557}
   p2scoreUI: {fileID: 882335605}
