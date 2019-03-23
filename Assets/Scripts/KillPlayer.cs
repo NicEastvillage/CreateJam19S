@@ -18,5 +18,7 @@ public class KillPlayer : MonoBehaviour
         transform.position = World.GetRandomPosition();
         Trail trail = GetComponentInChildren<Trail>();
         trail.Clear();
+
+        GetComponent<Movement>().PauseMovement();
     }
 }
