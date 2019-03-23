@@ -6,18 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class restartbutton : MonoBehaviour
 {
-
-    private Button button;
-
-    void Start()
+    public void TaskOnClick()
     {
-        button = GetComponent<Button>();
-        button.onClick.AddListener(TaskOnClick);
-    }
-
-    void TaskOnClick()
-    {
-        Debug.Log("hej");
-        //SceneManager.LoadScene(game);
+        SceneManager.LoadScene(0);
     }
 }

@@ -10,6 +10,7 @@ public class World : MonoBehaviour
     public GameObject pillprefab;
     public GameObject tilePrefab;
     public List<GameObject> tiles;
+    public int initAmountOfPills = 1;
     public float pillspawntimer;
     public float timer;
     private static World _instance;
@@ -39,7 +40,7 @@ public class World : MonoBehaviour
     }
     private void Start()
     {
-        spawnpill(5);
+        spawnpill(initAmountOfPills);
     }
     void Update()
     {
