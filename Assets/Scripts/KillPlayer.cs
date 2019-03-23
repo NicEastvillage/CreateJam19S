@@ -18,6 +18,7 @@ public class KillPlayer : MonoBehaviour
 
     public void Kill()
     {
+        audiomanager.instance.PlayDead();
         transform.position = World.GetRandomPosition();
         Trail trail = GetComponentInChildren<Trail>();
         trail.Clear();

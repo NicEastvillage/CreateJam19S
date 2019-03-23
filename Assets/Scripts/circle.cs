@@ -103,7 +103,8 @@ public class circle : MonoBehaviour
         if (collision.tag == "Player")
         {
             atepil = true;
-            
+            audiomanager.instance.PlayPill();
+            audiomanager.instance.PlayWave();
             Movement playerMovement = collision.gameObject.GetComponent<Movement>();
             Trail trail = collision.gameObject.GetComponentInChildren<Trail>();
             Debug.Log(trail.max);
