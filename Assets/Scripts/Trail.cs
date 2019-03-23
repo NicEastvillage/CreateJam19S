@@ -5,6 +5,7 @@ using System.Linq;
 
 public class Trail : MonoBehaviour
 {
+
     public int max = 100;
     public float interval = 0.05f;
     public GameObject trailCollisionPrefab;
@@ -27,7 +28,7 @@ public class Trail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentNum >= 100)
+        if (currentNum >= max)
         {
             points.Dequeue();
             Destroy(trailObjects.Dequeue());

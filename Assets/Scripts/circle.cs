@@ -104,12 +104,16 @@ public class circle : MonoBehaviour
         {
             atepil = true;
             
-            if (collision.name == "Player_2 (1)")
+            Movement playerMovement = collision.gameObject.GetComponent<Movement>();
+            Trail trail = collision.gameObject.GetComponentInChildren<Trail>();
+            Debug.Log(trail.max);
+            trail.max += 100;
+            Debug.Log(trail.max);
+            if (playerMovement.playerNumber == 2)
             {
-
                 playerScore.AddP2Score(1);
             }
-            if (collision.name == "Player_1")
+            if (playerMovement.playerNumber == 1)
             {
                 playerScore.AddP1Score(1);
             }
