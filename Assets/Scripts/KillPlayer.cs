@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    public string killingTrailTag = "Trail_P1";
+    public string killingTrailTag = "Trail";
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Player Collision");
         if (collider.tag == "Player" || collider.tag == killingTrailTag){
             Kill();
         }
@@ -19,5 +18,7 @@ public class KillPlayer : MonoBehaviour
         transform.position = World.GetRandomPosition();
         Trail trail = GetComponentInChildren<Trail>();
         trail.Clear();
+
+        GetComponent<Movement>().PauseMovement();
     }
 }

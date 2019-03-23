@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tile
-  - Trail_P1
-  - Trail_P2
   - Pill
+  - Trail
+  - Trail_P1
   layers:
   - Default
   - TransparentFX
