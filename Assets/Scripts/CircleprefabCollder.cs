@@ -15,15 +15,14 @@ public class CircleprefabCollder : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-       
-
-            GameObject g = collision.gameObject;
-           // Debug.Log(g);
+        if (collider.tag == "Tile")
+        {
+            GameObject g = collider.gameObject;
             SpriteRenderer colordims = g.GetComponent<SpriteRenderer>();
             SpriteRenderer circlerenderer = GetComponent<SpriteRenderer>();
             colordims.color = circlerenderer.color;
-        
+        }
     }
 }

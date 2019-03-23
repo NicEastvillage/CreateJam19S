@@ -36,7 +36,7 @@ public class World : MonoBehaviour
             }
         }
 
-        Camera.main.transform.position = new Vector3(width - 1, height - 1 + 3, -20) / 2;
+        Camera.main.transform.position = new Vector3(width - 1, height - 1 + 2, -20) / 2;
     }
     private void Start()
     {
