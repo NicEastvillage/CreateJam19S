@@ -7,8 +7,8 @@ public class playerScore : MonoBehaviour
 {
     public Text p1Score;
     public Text p2Score;
-    public int P1scorenum = 2;
-    public int P2scorenum= 5;
+    public int P1scorenum = 0;
+    public int P2scorenum= 0;
 
     private static playerScore _instance;
 
@@ -37,5 +37,15 @@ public class playerScore : MonoBehaviour
     {
         _instance.P2scorenum += score;
         _instance.UpdateScores();
+    }
+    public static int getP2Score()
+    {
+        return _instance.P2scorenum;
+        
+    }
+    public static int getP1Score()
+    {
+        return _instance.P1scorenum;
+        
     }
 }
