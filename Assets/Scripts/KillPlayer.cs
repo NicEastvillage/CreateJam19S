@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    public string killingTrailTag = "Trail_P1";
+    public string killingTrailTag = "Trail";
 
     void OnTriggerEnter2D(Collider2D collider)
     {
