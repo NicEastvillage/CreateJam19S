@@ -8,6 +8,6 @@ public class restartbutton : MonoBehaviour
 {
     public void TaskOnClick()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
     }
 }
