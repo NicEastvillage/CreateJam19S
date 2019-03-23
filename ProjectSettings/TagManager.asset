@@ -8,6 +8,8 @@ TagManager:
   - Pill
   - Trail
   - Trail_P1
+  - Trail_P2
+  - Wall
   layers:
   - Default
   - TransparentFX
