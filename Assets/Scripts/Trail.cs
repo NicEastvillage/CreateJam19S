@@ -7,16 +7,20 @@ public class Trail : MonoBehaviour
 {
     public int max = 100;
     public float interval = 0.05f;
-
+    public GameObject trailCollisionPrefab;
+    public string trailTag = "Trail_P1";
+    
     private float lastEnqueue = 0;
     private int currentNum = 0;
     private Queue<Vector3> points;
+    private Queue<GameObject> trailObjects;
     private LineRenderer line;
 
     // Start is called before the first frame update
     void Start()
     {
         points = new Queue<Vector3>();
+        trailObjects = new Queue<GameObject>();
         line = GetComponent<LineRenderer>();
         lastEnqueue = Time.time;
     }
@@ -27,35 +31,23 @@ public class Trail : MonoBehaviour
         if (currentNum >= 100)
         {
             points.Dequeue();
+            Destroy(trailObjects.Dequeue());
             currentNum--;
         }
 
         if (Time.time >= lastEnqueue + interval)
         {
             lastEnqueue = Time.time;
-            points.Enqueue(new Vector3(transform.position.x, transform.position.y));
+            Vector3 location = new Vector3(transform.position.x, transform.position.y);
+            GameObject g = Instantiate(trailCollisionPrefab, location, Quaternion.identity, null) as GameObject;
+            g.tag = trailTag;
+            trailObjects.Enqueue(g);
+            points.Enqueue(location);
             currentNum++;
         }
 
         Vector3[] arr = points.ToArray();
         line.positionCount = arr.Length;
         line.SetPositions(arr);
-        detecthit();
-    }
-
-    void detecthit()
-    {
-        RaycastHit hit;
-        Vector3[] arr = points.ToArray();
-        if (Physics.Raycast(arr[1], arr[arr.Length-1], out hit))
-            {
-                switch (hit.transform.gameObject.tag)
-                {
-                    case "Player":
-                        //Output message
-                        print("player detected");
-                        break;
-                }
-            }
     }
 }
