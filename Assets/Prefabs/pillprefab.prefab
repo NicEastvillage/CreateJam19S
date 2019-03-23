@@ -136,6 +136,6 @@ MonoBehaviour:
   numberofcircles: 1
   maxSize: 5.87
   growFactor: 30
-  waittime: 0.5
+  waittime: 0.07
   wavepos: {x: 0, y: 0, z: 0}
   atepil: 0

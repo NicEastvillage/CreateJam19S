@@ -7,6 +7,7 @@ public class Trail : MonoBehaviour
 {
 
     public int max = 100;
+    public int increasePerPill = 20;
     public float interval = 0.05f;
     public GameObject trailCollisionPrefab;
     

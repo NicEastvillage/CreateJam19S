@@ -108,7 +108,7 @@ public class circle : MonoBehaviour
             Movement playerMovement = collision.gameObject.GetComponent<Movement>();
             Trail trail = collision.gameObject.GetComponentInChildren<Trail>();
             Debug.Log(trail.max);
-            trail.max += 100;
+            trail.max += trail.increasePerPill;
             Debug.Log(trail.max);
             if (playerMovement.playerNumber == 2)
             {
