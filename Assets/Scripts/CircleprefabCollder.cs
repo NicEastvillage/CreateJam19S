@@ -20,7 +20,7 @@ public class CircleprefabCollder : MonoBehaviour
        
 
             GameObject g = collision.gameObject;
-            Debug.Log(g);
+           // Debug.Log(g);
             SpriteRenderer colordims = g.GetComponent<SpriteRenderer>();
             SpriteRenderer circlerenderer = GetComponent<SpriteRenderer>();
             colordims.color = circlerenderer.color;

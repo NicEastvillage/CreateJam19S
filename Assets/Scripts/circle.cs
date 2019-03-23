@@ -3,28 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class circle : MonoBehaviour
-{    
-    public float size=.01f;
-    public float waittime = 10f;
+{
+
+    
     public GameObject prefab;
-    int numberofcircles = 10;
+    int numberofcircles = 5;
     public float maxSize = 2;
     public float growFactor = 1.2f;
-    public float waitTime=0.2f;
+    public float waittime = 0.5f;
+
+    public bool atepil = true;
     // Use this for initialization
     void Start()
     {
         
-        Vector3 me = this.transform.position;
-        Vector3 mysize = this.transform.localScale;
-        GameObject ost = createCircle(me, mysize.x, mysize.y);
-        StartCoroutine(Scale(ost));
+        
+       
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (atepil)
+        {
+            atepil = false;
+           
+            StartCoroutine(wave());
+         
+        }
 
        
         
@@ -33,19 +41,20 @@ public class circle : MonoBehaviour
     }
     IEnumerator wave()
     {
-        Vector3 me = this.transform.position;
-        Vector3 mysize = this.transform.localScale;
-        GameObject ost = createCircle(me, mysize.x, mysize.y);
-        /*  for (int i = 0; i < numberofcircles; i++)
+       
+        
+        
+        
+          for (int i = 0; i < numberofcircles; i++)
           {
-              size += 0.1f;
-              
+              GameObject x = createCircle(transform.position, transform.localScale.x * 0.01f, transform.localScale.y * 0.01f);
+            StartCoroutine(Scale(x));
 
-              yield return new WaitForSeconds(waittime);
-              Destroy(ost);
+            yield return new WaitForSeconds(waittime);
+             
 
-          }  */
-        yield return new WaitForSeconds(1);
+          }  
+       
     }
 
 
@@ -80,6 +89,32 @@ public class circle : MonoBehaviour
             
             yield return null;
         }
-               
+        if (maxSize < ost.transform.localScale.x)
+        {
+            Destroy(ost);
+        }
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.tag == "Player")
+        {
+            atepil = true;
+            Debug.Log(collision.name);
+            if (collision.name == "Player_2 (1)")
+            {
+                playerScore.AddP2Score(1);
+            }
+            if (collision.name == "Player_1")
+            {
+                playerScore.AddP1Score(1);
+            }
+
+
+        }
+
+
     }
 }
