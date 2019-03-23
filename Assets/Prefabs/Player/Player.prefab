@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083032ea4d836c649af6a29b59f61e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   moveSpeed: 10
   left: 97
   right: 100
@@ -145,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96bb56a666111d64caf94dc029411f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  killingTrailTag: Trail_P1
+  killingTrailTag: Trail
 --- !u!61 &5265700546930024521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -242,7 +242,6 @@ MonoBehaviour:
   interval: 0.01
   trailCollisionPrefab: {fileID: 3144863133863337164, guid: e787c880447eb234bbfc35251e22a476,
     type: 3}
-  trailTag: Trail_P1
 --- !u!120 &8722881446589345401
 LineRenderer:
   m_ObjectHideFlags: 0

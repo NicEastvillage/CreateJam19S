@@ -5,7 +5,8 @@ using UnityEngine;
 public class TileCollider : MonoBehaviour
 {   bool collided;
     Color Startcolor;
-    int changecolorbacktime=2;
+    float currenttimer;
+    public float maxtimer = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,25 +18,22 @@ public class TileCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     if (currenttimer > maxtimer)
+        {
+            SpriteRenderer color = GetComponent<SpriteRenderer>();
+            color.color = Startcolor;
+            currenttimer = 0;
+        }
+        else
+        {
+            currenttimer = currenttimer + Time.deltaTime;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        StartCoroutine(OnTriggerEnterresetcolor(collision));
+        currenttimer = 0;
         
     }
-   
-
-    IEnumerator OnTriggerEnterresetcolor(Collider2D collider)
-    {
-        
-        yield return new WaitForSeconds(changecolorbacktime);
-       
-           SpriteRenderer color = GetComponent<SpriteRenderer>();
-            color.color = Startcolor;
-        
-    }
-
-   
+    
 }
