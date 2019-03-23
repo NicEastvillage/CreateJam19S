@@ -33,6 +33,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void Resume()
     {
+        audiomanager.instance.PlayGamebegin();
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
