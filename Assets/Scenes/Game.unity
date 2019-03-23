@@ -224,6 +224,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Trail_P1
       objectReference: {fileID: 0}
+    - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
 --- !u!1001 &714640099
@@ -298,6 +303,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1287741544}
+    - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trail_P2
+      objectReference: {fileID: 0}
     - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
       propertyPath: left
@@ -318,10 +328,10 @@ PrefabInstance:
       propertyPath: down
       value: 274
       objectReference: {fileID: 0}
-    - target: {fileID: 9006452711558099591, guid: 39495480a4552b94585cfccdf89c398c,
+    - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
-      propertyPath: m_TagString
-      value: Trail_P2
+      propertyPath: playerNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}

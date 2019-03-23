@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: killingTrailTag
       value: Trail_P2
       objectReference: {fileID: 0}
+    - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
 --- !u!1 &494901810
@@ -424,6 +429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: down
       value: 274
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265700546930024532, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
