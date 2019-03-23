@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private int playerNumber;
-    public float moveSpeed = 0f;
+    [SerializeField ]private float moveSpeed = 5f;
     //public float distance = 0f;  
     public KeyCode left;
     public KeyCode right;
@@ -14,16 +14,29 @@ public class Movement : MonoBehaviour
     public GameObject gameObejct;
     private Vector2 moveDirection = Vector2.zero;
 
+    public float pausedMovementDuration = 2.5f;
+    public float pausedMovementTimer = 0f;
+    public TextMesh pausedMovementMesh;
+    
     // Start is called before the first frame update
     void Start()
     {
-        gameObejct.GetComponent<GameObject>();   
+        PauseMovement();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement();
+        if (pausedMovementTimer > 0)
+        {
+            pausedMovementTimer -= Time.deltaTime;
+            pausedMovementMesh.text = ((int)(pausedMovementTimer + 1f)).ToString();
+        }
+        else
+        {
+            pausedMovementMesh.text = "";
+            movement();
+        }
     }
 
     void movement()
@@ -33,13 +46,43 @@ public class Movement : MonoBehaviour
             case 1:
                 //Debug.Log("Horizontal: " + Input.GetAxis("PS4_1_Horizontal"));
                 //Debug.Log("Horizontal: " + Input.GetAxis("PS4_1_Vertical"));
-                moveDirection = new Vector2(Input.GetAxis("PS4_1_Horizontal"), Input.GetAxis("PS4_1_Vertical"));
-                gameObejct.transform.Translate(moveDirection);
+                if (Input.GetAxis("PS4_1_Horizontal") > 0)
+                {
+                    gameObejct.transform.Translate((new Vector2(moveSpeed*Time.deltaTime, 0)));
+                } else if (Input.GetAxis("PS4_1_Horizontal") < 0 )
+                {
+                    gameObejct.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0));
+                } else if (Input.GetAxis("PS4_1_Vertical") > 0)
+                {
+                    gameObejct.transform.Translate(new Vector2(0, moveSpeed * Time.deltaTime));
+                } else if (Input.GetAxis("PS4_1_Vertical") < 0)
+                {
+                    gameObejct.transform.Translate(new Vector2(0, -moveSpeed * Time.deltaTime));
+                }
+               // moveDirection = new Vector2(Input.GetAxis("PS4_1_Horizontal"), Input.GetAxis("PS4_1_Vertical"));
+               // gameObejct.transform.Translate(moveDirection);
                 //moveDirection *= moveSpeed;
                 break;
             case 2:
-                moveDirection = new Vector2(Input.GetAxis("PS4_2_Horizontal"), Input.GetAxis("PS4_2_Vertical"));
-                gameObejct.transform.Translate(moveDirection);
+
+                if (Input.GetAxis("PS4_2_Horizontal") > 0)
+                {
+                    gameObejct.transform.Translate((new Vector2(moveSpeed * Time.deltaTime, 0)));
+                }
+                else if (Input.GetAxis("PS4_2_Horizontal") < 0)
+                {
+                    gameObejct.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0));
+                }
+                else if (Input.GetAxis("PS4_2_Vertical") > 0)
+                {
+                    gameObejct.transform.Translate(new Vector2(0, moveSpeed * Time.deltaTime));
+                }
+                else if (Input.GetAxis("PS4_2_Vertical") < 0)
+                {
+                    gameObejct.transform.Translate(new Vector2(0, -moveSpeed * Time.deltaTime));
+                }
+                //moveDirection = new Vector2(Input.GetAxis("PS4_2_Horizontal"), Input.GetAxis("PS4_2_Vertical"));
+                //gameObejct.transform.Translate(moveDirection);
                 //moveDirection *= moveSpeed;
                 break;
         }
@@ -66,5 +109,8 @@ public class Movement : MonoBehaviour
         }
     }
 
-    
+    public void PauseMovement()
+    {
+        pausedMovementTimer = pausedMovementDuration;
+    }
 }
