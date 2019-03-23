@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillPlayer : MonoBehaviour{
-
-    public Transform spawnPoint;
+public class KillPlayer : MonoBehaviour
+{
     public string killingTrailTag = "Trail_P1";
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -17,7 +16,7 @@ public class KillPlayer : MonoBehaviour{
 
     public void Kill()
     {
-        transform.position = spawnPoint.transform.position;
+        transform.position = World.GetRandomPosition();
         Trail trail = GetComponentInChildren<Trail>();
         trail.Clear();
     }
