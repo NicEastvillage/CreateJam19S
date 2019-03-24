@@ -521,16 +521,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    - target: {fileID: 8722881446589345401, guid: 39495480a4552b94585cfccdf89c398c,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 47edab8db5aed4c41b83eb1d17aaf519, type: 2}
     - target: {fileID: 4721482902197709156, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
       propertyPath: m_Color.rgba
       value: 4293909518
       objectReference: {fileID: 0}
+    - target: {fileID: 8722881446589345401, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47edab8db5aed4c41b83eb1d17aaf519, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
 --- !u!1 &314374461
@@ -824,10 +824,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    - target: {fileID: 4721482902197709156, guid: 39495480a4552b94585cfccdf89c398c,
+    - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
-      propertyPath: m_Color.rgba
-      value: 4279144441
+      propertyPath: trailTag
+      value: Trail_P2
       objectReference: {fileID: 0}
     - target: {fileID: 6103041200946767798, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
@@ -835,10 +835,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 47b9bd0bca85caf40af234f9237cdada,
         type: 3}
-    - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
+    - target: {fileID: 4721482902197709156, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
-      propertyPath: trailTag
-      value: Trail_P2
+      propertyPath: m_Color.rgba
+      value: 4279144441
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
@@ -7603,7 +7603,6 @@ MonoBehaviour:
   - {fileID: 0}
   initAmountOfPills: 2
   pillspawntimer: 15
-  timer: 0
 --- !u!4 &1211470398
 Transform:
   m_ObjectHideFlags: 0
@@ -7657,7 +7656,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -7779,9 +7778,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe0ef7603b895ae409f79ed1c5194eb8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c9ace1afea6c0584fb6d0529e9ed9b94, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.846
+  m_Volume: 0.976
   m_Pitch: 0.94
   Loop: 0
   Mute: 0
@@ -8168,7 +8167,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -8355,6 +8354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1497812739}
   - component: {fileID: 1497812738}
+  - component: {fileID: 1497812740}
   - component: {fileID: 1497812737}
   m_Layer: 0
   m_Name: Main Camera
@@ -8428,6 +8428,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497812740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497812736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d8dc7c0af3bc4fbdbcceadbdcf5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camshakeduration: 0.2
+  shakeMagnitude: 0.3
+  dampingSpeed: 1
+  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1507939199
 GameObject:
   m_ObjectHideFlags: 0
