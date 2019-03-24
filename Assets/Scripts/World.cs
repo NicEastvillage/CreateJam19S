@@ -39,6 +39,7 @@ public class World : MonoBehaviour
         Camera.main.transform.position = new Vector3(width - 1, height - 1 + 2, -20) / 2;
         ShakeBehavior.instance.initialPosition = Camera.main.transform.position;
     }
+
     private void Start()
     {
         spawnpill(initAmountOfPills);
