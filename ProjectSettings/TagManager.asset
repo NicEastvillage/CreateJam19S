@@ -10,6 +10,7 @@ TagManager:
   - Trail_P1
   - Trail_P2
   - Wall
+  - Circle
   layers:
   - Default
   - TransparentFX

@@ -391,6 +391,8 @@ MonoBehaviour:
   map: {fileID: 1211470396}
   p1: {fileID: 940683526}
   p2: {fileID: 1584592587}
+  secondsforspeedtorise: 15
+  speedraise: 0.1
   timerisout: 0
 --- !u!114 &175803399
 MonoBehaviour:
@@ -704,6 +706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265700546930024531, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5265700546930024520, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}

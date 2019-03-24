@@ -141,4 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377d5923c7da5024a8a801ae14476ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxtimer: 0.5
+  maxtimer: 0.2
+  camshakeduration: 0.1
+  shakeMagnitude: 1.16
+  initialPosition: {x: 0, y: 0, z: 0}
+  dampingSpeed: 0.5

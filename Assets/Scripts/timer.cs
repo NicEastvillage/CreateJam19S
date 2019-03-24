@@ -17,16 +17,25 @@ public class timer : MonoBehaviour
     public GameObject p2;
     public int secondsforspeedtorise = 15;
     public float speedraise = 0.1f;
-
+    public static timer instance = null;
     public bool timerisout= false;
-    private void FixedUpdate()
+    void Awake()
+    {
+        
+        if (instance == null)
+
+            instance = this;
+    }
+        private void Update()
     {
         
         if (totalTime % secondsforspeedtorise < 0.2f)
         {
             
             increasemovespeed();
-           
+            
+
+
         }
         if (timerisout == false)
         {
