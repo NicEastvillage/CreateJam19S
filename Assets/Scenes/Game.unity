@@ -392,7 +392,7 @@ MonoBehaviour:
   p1: {fileID: 940683526}
   p2: {fileID: 1584592587}
   secondsforspeedtorise: 15
-  speedraise: 0.1
+  speedraise: 0.012
   timerisout: 0
 --- !u!114 &175803399
 MonoBehaviour:

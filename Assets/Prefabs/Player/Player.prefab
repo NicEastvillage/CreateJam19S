@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 100
-  increasePerPill: 3
+  increasePerPill: 2
   interval: 0.01
   trailCollisionPrefab: {fileID: 3144863133863337164, guid: e787c880447eb234bbfc35251e22a476,
     type: 3}
