@@ -531,6 +531,12 @@ PrefabInstance:
       propertyPath: m_Color.rgba
       value: 4293909518
       objectReference: {fileID: 0}
+    - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: trailExplosionPrefab
+      value: 
+      objectReference: {fileID: 8309751981367575713, guid: 3cda267196d9d94439343385afe2f47d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
 --- !u!1 &314374461
