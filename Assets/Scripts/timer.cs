@@ -19,6 +19,9 @@ public class timer : MonoBehaviour
     public float speedraise = 0.1f;
     public static timer instance = null;
     public bool timerisout= false;
+
+    private bool alertStarted = false;
+
     void Awake()
     {
         
@@ -37,6 +40,11 @@ public class timer : MonoBehaviour
 
 
         }
+        if (totalTime <= 10.6f && !alertStarted)
+        {
+            audiomanager.instance.PlayAlert();
+            alertStarted = true;
+        }
         if (timerisout == false)
         {
             
@@ -48,7 +56,6 @@ public class timer : MonoBehaviour
                     }
         }
         else { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
-        
     }
 
     public void UpdateLevelTimer(float totalSeconds)
@@ -66,6 +73,7 @@ public class timer : MonoBehaviour
 
         GetComponent<Text>().text = minutes.ToString("00") + "." + seconds.ToString("00");
     }
+
     public void increasemovespeed()
     {
         GameObject player1 = GameObject.Find("Player_1");

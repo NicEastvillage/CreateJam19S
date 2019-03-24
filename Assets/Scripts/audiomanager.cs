@@ -16,6 +16,7 @@ public class audiomanager : MonoBehaviour
     public AudioSource pillpickup;
     public AudioSource soundtrack;
     public AudioSource menutrack;
+    public AudioSource alert;
     public static audiomanager instance = null;     //Allows other scripts to call functions from SoundManager.             
 
 
@@ -68,5 +69,25 @@ public class audiomanager : MonoBehaviour
     public void StopMenutrack()
     {
         menutrack.Stop();
+    }
+
+    public void PlayAlert()
+    {
+        StartCoroutine(Alert());
+    }
+
+    IEnumerator Alert()
+    {
+        alert.Play();
+        yield return new WaitForSeconds(5);
+        alert.Play();
+        yield return new WaitForSeconds(2);
+        alert.Play();
+        yield return new WaitForSeconds(1);
+        alert.Play();
+        yield return new WaitForSeconds(1);
+        alert.Play();
+        yield return new WaitForSeconds(1);
+        alert.Play();
     }
 }
