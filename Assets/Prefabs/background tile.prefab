@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxtimer: 0.2
   camshakeduration: 0.1
-  increaseofmag: 0.2
+  increaseofmag: 0.23
   shakeMagnitude: 0
   secondstoincreasemag: 15
   initialPosition: {x: 0, y: 0, z: 0}
