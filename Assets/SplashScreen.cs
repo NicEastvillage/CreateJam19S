@@ -11,6 +11,7 @@ public class SplashScreen : MonoBehaviour
     void Start()
     {
 		Invoke("UpdateSplash", 2);
+        audiomanager.instance.PlayMenutrack();
     }
 
     

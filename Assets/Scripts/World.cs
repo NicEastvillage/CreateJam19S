@@ -43,7 +43,10 @@ public class World : MonoBehaviour
     private void Start()
     {
         spawnpill(initAmountOfPills);
+        audiomanager.instance.StopMenutrack();
+        audiomanager.instance.PlaySoundtrack();
     }
+
     void Update()
     {
         if(timer< pillspawntimer)
