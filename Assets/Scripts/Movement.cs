@@ -25,18 +25,24 @@ public class Movement : MonoBehaviour
     private Vector2 moveDirection = Vector2.up;
     private string ps_horizontal;
     private string ps_vertical;
+    private string ps_horizontal_stick;
+    private string ps_vertical_stick;
 
     // Start is called before the first frame update
     void Start()
     {
         if (playerNumber == 1)
         {
-            ps_horizontal = "PS4_1_Horizontal";
-            ps_vertical = "PS4_1_Vertical";
+            ps_horizontal = "PS4_1_Horizontal_arrows";
+            ps_vertical = "PS4_1_Vertical_arrows";
+            ps_horizontal_stick = "PS4_1_Horizontal_stick";
+            ps_vertical_stick = "PS4_1_Vertical_stick";
         } else
         {
-            ps_horizontal = "PS4_2_Horizontal";
-            ps_vertical = "PS4_2_Vertical";
+            ps_horizontal = "PS4_2_Horizontal_arrows";
+            ps_vertical = "PS4_2_Vertical_arrows";
+            ps_horizontal_stick = "PS4_2_Horizontal_stick";
+            ps_vertical_stick = "PS4_2_Vertical_stick";
         }
 
         PauseMovement();
@@ -81,8 +87,8 @@ public class Movement : MonoBehaviour
 
     Vector2 MovementDirection()
     {
-        float ps_x = Input.GetAxis(ps_horizontal);
-        float ps_y = Input.GetAxis(ps_vertical);
+        float ps_x = Input.GetAxis(ps_horizontal) + Input.GetAxis(ps_horizontal_stick);
+        float ps_y = Input.GetAxis(ps_vertical) + Input.GetAxis(ps_vertical_stick);
 
         Vector2 direction = new Vector2(
             ps_x + b2i(Input.GetKey(right)) - b2i(Input.GetKey(left)),
