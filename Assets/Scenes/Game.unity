@@ -842,17 +842,17 @@ PrefabInstance:
       propertyPath: m_Color.rgba
       value: 4279144441
       objectReference: {fileID: 0}
+    - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
+        type: 3}
+      propertyPath: trailTag
+      value: Trail_P2
+      objectReference: {fileID: 0}
     - target: {fileID: 6103041200946767798, guid: 39495480a4552b94585cfccdf89c398c,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 47b9bd0bca85caf40af234f9237cdada,
         type: 3}
-    - target: {fileID: 6720412818570808490, guid: 39495480a4552b94585cfccdf89c398c,
-        type: 3}
-      propertyPath: trailTag
-      value: Trail_P2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39495480a4552b94585cfccdf89c398c, type: 3}
 --- !u!1001 &767795049
@@ -1317,6 +1317,7 @@ MonoBehaviour:
     type: 3}
   tilePrefab: {fileID: 4184894687408231024, guid: e4328c4c066f30a44bd07efae03cbc9a,
     type: 3}
+  cross: {fileID: 9042718447218861429, guid: 88ca49ca1f26d784dbb64e22c421bcc1, type: 3}
   tiles:
   - {fileID: 0}
   - {fileID: 0}
@@ -7683,6 +7684,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  cam: {fileID: 1497812738}
   initAmountOfPills: 2
   pillspawntimer: 15
 --- !u!4 &1211470398

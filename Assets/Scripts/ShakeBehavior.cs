@@ -19,7 +19,7 @@ public class ShakeBehavior : MonoBehaviour
     
     public Vector3 initialPosition;
 
-    void Awake()
+    void OnEnable()
     {
         if (transform == null)
         {
@@ -32,11 +32,9 @@ public class ShakeBehavior : MonoBehaviour
         else if (instance != this)
 
             Destroy(gameObject);
-    }
-    void OnEnable()
-    {
         initialPosition = transform.localPosition;
     }
+ 
     void Start()
     {
         

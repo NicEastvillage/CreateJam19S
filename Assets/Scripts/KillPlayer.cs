@@ -37,8 +37,16 @@ public class KillPlayer : MonoBehaviour
 
     public void Kill()
     {
+
         ShakeBehavior.instance.TriggerShake();
         audiomanager.instance.PlayDead();
+        int i = Random.Range(0, 4);
+
+        if (i ==3)
+        { 
+            World._instance.spawndeathtile(transform.position);
+           
+        }
         transform.position = World.GetRandomPosition();
         Trail trail = GetComponentInChildren<Trail>();
         trail.Clear();

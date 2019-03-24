@@ -9,12 +9,16 @@ public class World : MonoBehaviour
     public int height = 18;
     public GameObject pillprefab;
     public GameObject tilePrefab;
+    public GameObject cross;
     public List<GameObject> tiles;
+    public Camera cam;
     public int initAmountOfPills = 1;
     public float pillspawntimer;
     private float timer;
-    private static World _instance;
-    
+    public static World _instance;
+    public int maxdeadzones = 5;
+    private int currentamountofdeadzones;
+
     void OnEnable()
     {
         _instance = this;
@@ -37,11 +41,13 @@ public class World : MonoBehaviour
         }
 
         Camera.main.transform.position = new Vector3(width - 1, height - 1 + 2, -20) / 2;
-        ShakeBehavior.instance.initialPosition = Camera.main.transform.position;
+        
+        
     }
 
     private void Start()
     {
+        ShakeBehavior.instance.initialPosition = Camera.main.transform.position;
         spawnpill(initAmountOfPills);
         audiomanager.instance.StopMenutrack();
         audiomanager.instance.PlaySoundtrack();
@@ -57,7 +63,9 @@ public class World : MonoBehaviour
         {
             timer = 0f;
             spawnpill(1);
-            
+            maxdeadzones += 1;
+
+
         }
     }
     public static Vector3 GetRandomPosition()
@@ -73,5 +81,14 @@ public class World : MonoBehaviour
         GameObject p = Instantiate(pillprefab,  ost, Quaternion.identity, transform) as GameObject;
         }
         
+    }
+    public void spawndeathtile(Vector3 pos)
+    {
+        if (currentamountofdeadzones<maxdeadzones) {
+            currentamountofdeadzones += 1;
+            Vector3 newpos = new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), pos.z);
+            GameObject p = Instantiate(cross, newpos, Quaternion.identity, transform) as GameObject;
+        }
+
     }
 }
