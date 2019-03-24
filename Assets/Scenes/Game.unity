@@ -391,6 +391,8 @@ MonoBehaviour:
   map: {fileID: 1211470396}
   p1: {fileID: 940683526}
   p2: {fileID: 1584592587}
+  secondsforspeedtorise: 15
+  speedraise: 0.1
   timerisout: 0
 --- !u!114 &175803399
 MonoBehaviour:
@@ -7609,7 +7611,6 @@ MonoBehaviour:
   - {fileID: 0}
   initAmountOfPills: 2
   pillspawntimer: 15
-  timer: 0
 --- !u!4 &1211470398
 Transform:
   m_ObjectHideFlags: 0
@@ -7771,7 +7772,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: {fileID: 1393557711}
-  deadsound: {fileID: 0}
   dead: {fileID: 1393557715}
   gamebegin: {fileID: 1393557712}
   pillpickup: {fileID: 1393557714}
@@ -7785,9 +7785,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe0ef7603b895ae409f79ed1c5194eb8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c9ace1afea6c0584fb6d0529e9ed9b94, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.846
+  m_Volume: 0.976
   m_Pitch: 0.94
   Loop: 0
   Mute: 0
@@ -8361,6 +8361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1497812739}
   - component: {fileID: 1497812738}
+  - component: {fileID: 1497812740}
   - component: {fileID: 1497812737}
   m_Layer: 0
   m_Name: Main Camera
@@ -8434,6 +8435,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497812740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497812736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d8dc7c0af3bc4fbdbcceadbdcf5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camshakeduration: 0.2
+  shakeMagnitude: 0.1
+  dampingSpeed: 1
+  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1507939199
 GameObject:
   m_ObjectHideFlags: 0

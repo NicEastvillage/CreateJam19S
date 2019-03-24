@@ -11,7 +11,6 @@ public class audiomanager : MonoBehaviour
     
     AudioSource efxSource;                  
     public AudioSource wave;
-    public AudioSource deadsound;
     public AudioSource dead;
     public AudioSource gamebegin;
     public AudioSource pillpickup;
