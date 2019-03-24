@@ -10,6 +10,7 @@ public class Trail : MonoBehaviour
     public int increasePerPill = 20;
     public float interval = 0.05f;
     public GameObject trailCollisionPrefab;
+    public GameObject trailExplosionPrefab;
     
     private float lastEnqueue = 0;
     private int currentNum = 0;
@@ -41,6 +42,7 @@ public class Trail : MonoBehaviour
             lastEnqueue = Time.time;
             Vector3 location = new Vector3(transform.position.x, transform.position.y);
             GameObject g = Instantiate(trailCollisionPrefab, location, Quaternion.identity, null) as GameObject;
+            g.GetComponent<TrailDanger>().explosionPrefab = trailExplosionPrefab;
             trailObjects.Enqueue(g);
             points.Enqueue(location);
             currentNum++;

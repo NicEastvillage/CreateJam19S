@@ -343,6 +343,8 @@ MonoBehaviour:
   interval: 0.01
   trailCollisionPrefab: {fileID: 3144863133863337164, guid: e787c880447eb234bbfc35251e22a476,
     type: 3}
+  trailExplosionPrefab: {fileID: 1809979836525644058, guid: 9212eec1ebf22b6429447ba54576873c,
+    type: 3}
 --- !u!120 &8722881446589345401
 LineRenderer:
   m_ObjectHideFlags: 0

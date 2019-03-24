@@ -15,12 +15,31 @@ public class timer : MonoBehaviour
     public GameObject map;
     public GameObject p1;
     public GameObject p2;
-
+    public int secondsforspeedtorise = 15;
+    public float speedraise = 0.1f;
+    public static timer instance = null;
     public bool timerisout= false;
-    private void FixedUpdate()
+    void Awake()
     {
+        
+        if (instance == null)
+
+            instance = this;
+    }
+        private void Update()
+    {
+        
+        if (totalTime % secondsforspeedtorise < 0.2f)
+        {
+            
+            increasemovespeed();
+            
+
+
+        }
         if (timerisout == false)
         {
+            
             totalTime -= Time.deltaTime;
             UpdateLevelTimer(totalTime);
              if (totalTime < 1)
@@ -46,5 +65,15 @@ public class timer : MonoBehaviour
         }
 
         GetComponent<Text>().text = minutes.ToString("00") + "." + seconds.ToString("00");
+    }
+    public void increasemovespeed()
+    {
+        GameObject player1 = GameObject.Find("Player_1");
+        Movement script = player1.GetComponent<Movement>();
+        script.moveSpeed += speedraise;
+
+        GameObject player2 = GameObject.Find("Player_2 (1)");
+        Movement script2 = player2.GetComponent<Movement>();
+        script2.moveSpeed += speedraise;
     }
 }

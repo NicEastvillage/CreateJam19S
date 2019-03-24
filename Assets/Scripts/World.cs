@@ -12,7 +12,7 @@ public class World : MonoBehaviour
     public List<GameObject> tiles;
     public int initAmountOfPills = 1;
     public float pillspawntimer;
-    public float timer;
+    private float timer;
     private static World _instance;
     
     void OnEnable()
@@ -37,7 +37,9 @@ public class World : MonoBehaviour
         }
 
         Camera.main.transform.position = new Vector3(width - 1, height - 1 + 2, -20) / 2;
+        ShakeBehavior.instance.initialPosition = Camera.main.transform.position;
     }
+
     private void Start()
     {
         spawnpill(initAmountOfPills);

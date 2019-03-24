@@ -8,9 +8,28 @@ public class KillPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Player" || collider.tag == killingTrailTag){
+        if (collider.tag == "Player" || collider.tag == killingTrailTag)
+        {
+            Movement m = GetComponent<Movement>();
+            if (m.pausedMovementTimer <= 0f)
+            {
+                TrailDanger td = collider.gameObject.GetComponent<TrailDanger>();
+                if (td != null)
+                {
+                    GameObject g = Instantiate(td.explosionPrefab, transform.position, Quaternion.identity, null);
+                    Destroy(g, 2);
+                }
+                else
+                {
+                    GameObject explosionPrefab = GetComponentInChildren<Trail>().trailExplosionPrefab;
+                    GameObject g = Instantiate(explosionPrefab, transform.position, Quaternion.identity, null);
+                    Destroy(g, 2);
+                }
+            }
+            
             Kill();
-        } else if (collider.tag == "Wall")
+        }
+        else if (collider.tag == "Wall")
         {
             Kill();
         }
@@ -18,6 +37,7 @@ public class KillPlayer : MonoBehaviour
 
     public void Kill()
     {
+        ShakeBehavior.instance.TriggerShake();
         audiomanager.instance.PlayDead();
         transform.position = World.GetRandomPosition();
         Trail trail = GetComponentInChildren<Trail>();
