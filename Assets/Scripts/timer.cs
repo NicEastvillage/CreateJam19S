@@ -12,9 +12,11 @@ public class timer : MonoBehaviour
     public GameObject timerUI;
     public GameObject p1scoreUI;
     public GameObject p2scoreUI;
+    public GameObject p3scoreUI;
     public GameObject map;
     public GameObject p1;
     public GameObject p2;
+    public GameObject p3;
     public int secondsforspeedtorise = 15;
     public float speedraise = 0.1f;
     public static timer instance = null;
@@ -82,6 +84,11 @@ public class timer : MonoBehaviour
 
         GameObject player2 = GameObject.Find("Player_2 (1)");
         Movement script2 = player2.GetComponent<Movement>();
+        script2.moveSpeed += speedraise;
+
+
+        GameObject player3 = GameObject.Find("Player_3");
+        Movement script3 = player3.GetComponent<Movement>();
         script2.moveSpeed += speedraise;
     }
 }

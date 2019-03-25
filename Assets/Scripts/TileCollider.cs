@@ -16,6 +16,8 @@ public class TileCollider : MonoBehaviour
     public float secondstoincreasemag = 15;
     public Vector3 initialPosition;
     public float dampingSpeed = 1.0f;
+    public bool mode = false;
+    public SpriteRenderer colordims;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,7 +28,7 @@ public class TileCollider : MonoBehaviour
     }
         void Start()
     {
-        SpriteRenderer colordims = GetComponent<SpriteRenderer>();
+        colordims = GetComponent<SpriteRenderer>();
         Startcolor = colordims.color;
         
     }
@@ -66,6 +68,12 @@ public class TileCollider : MonoBehaviour
             shakeDuration = 0f;
             transform.localPosition = initialPosition;
         }
+        if (timer.instance.totalTime < 30 && !mode){
+            mode = true;
+            
+            StartCoroutine(hypermode());
+        }
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -83,6 +91,33 @@ public class TileCollider : MonoBehaviour
         {
             shakeMagnitude += increaseofmag;
         }
+
+    }
+    IEnumerator hypermode()
+    {
+        Color Color = new Color(1, 0,0);
+        Startcolor = Color;
+        yield return new WaitForSeconds(0.75f);
+        StartCoroutine(hypermode2());
+    
+
+    }
+    IEnumerator hypermode2()
+    {
+        Color Color = new Color(0,1,0);
+        Startcolor = Color;
+        yield return new WaitForSeconds(0.75f);
+        StartCoroutine(hypermode3());
+
+
+    }
+    IEnumerator hypermode3()
+    {
+        Color Color = new Color(0,0,1);
+        Startcolor = Color;
+        yield return new WaitForSeconds(0.75f);
+        StartCoroutine(hypermode());
+
 
     }
 }

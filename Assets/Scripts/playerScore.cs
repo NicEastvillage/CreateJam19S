@@ -7,9 +7,10 @@ public class playerScore : MonoBehaviour
 {
     public Text p1Score;
     public Text p2Score;
+    public Text p3Score;
     public int P1scorenum = 0;
     public int P2scorenum= 0;
-
+    public int P3scorenum = 0;
     private static playerScore _instance;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class playerScore : MonoBehaviour
     {
         p1Score.text = P1scorenum.ToString();
         p2Score.text = P2scorenum.ToString();
-       
+        p3Score.text = P3scorenum.ToString();
     }
 
     public static void AddP1Score(int score)
@@ -37,6 +38,11 @@ public class playerScore : MonoBehaviour
         _instance.P2scorenum += score;
         _instance.UpdateScores();
     }
+    public static void AddP3Score(int score)
+    {
+        _instance.P3scorenum += score;
+        _instance.UpdateScores();
+    }
     public static int getP2Score()
     {
         return _instance.P2scorenum;
@@ -46,5 +52,10 @@ public class playerScore : MonoBehaviour
     {
         return _instance.P1scorenum;
         
+    }
+    public static int getP3Score()
+    {
+        return _instance.P3scorenum;
+
     }
 }

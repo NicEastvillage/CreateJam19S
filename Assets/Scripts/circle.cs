@@ -109,14 +109,18 @@ public class circle : MonoBehaviour
             Trail trail = collision.gameObject.GetComponentInChildren<Trail>();
             Debug.Log(trail.max);
             trail.max += trail.increasePerPill;
-            Debug.Log(trail.max);
+
             if (playerMovement.playerNumber == 2)
             {
                 playerScore.AddP2Score(1);
             }
-            if (playerMovement.playerNumber == 1)
+            else if (playerMovement.playerNumber == 1)
             {
                 playerScore.AddP1Score(1);
+            }
+            else if (playerMovement.playerNumber == 3)
+            {
+                playerScore.AddP3Score(1);
             }
             wavepos = collision.gameObject.transform.position;
             Vector3 pos = World.GetRandomPosition();
